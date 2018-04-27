@@ -1,3 +1,5 @@
+#include <Wire.h>
+
 #define I2C_Low 0b00000000 //00 denotes to set the output pin to low
 #define I2C_High 0b00000011 //11 denotes to set the output pin to high
 #define I2C_Float 0b00000010 //10 denotes to set the pin to and input, causing it to be a floating voltage
@@ -36,4 +38,5 @@ void loop()
 {
 
 }
+
 
