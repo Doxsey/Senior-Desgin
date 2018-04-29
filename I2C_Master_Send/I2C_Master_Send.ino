@@ -20,11 +20,12 @@ void setup()
   I2C_Data = (I2C_Data | CA1) << 2;
   I2C_Data = (I2C_Data | CA0);
   
-  Wire.begin(); // join i2c bus
+  Wire.begin(); // join i2c bus with address of 1
   
-  Wire.beginTransmission(100); // transmit to device #100 (0x64)
+  Wire.beginTransmission(8); // transmit to device #100 (0x64)
                               // device address is specified in datasheet
   Wire.write(I2C_Data);       // sends I2C_Data byte  
+  //Wire.write("hello");
   Wire.endTransmission();     // stop transmitting
 
   
@@ -36,7 +37,14 @@ void setup()
 
 void loop() 
 {
-
+delay(1000);
+Wire.beginTransmission(8); // transmit to device #100 (0x64)
+                              // device address is specified in datasheet
+//Wire.write("hello");
+ Wire.write(I2C_Data);       // sends I2C_Data byte  
+  Wire.endTransmission();     // stop transmitting
+  
+  
 }
 
 
