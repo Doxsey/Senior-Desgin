@@ -5,9 +5,9 @@
 #define I2C_Float 0b00000010 //10 denotes to set the pin to and input, causing it to be a floating voltage
 
 
-byte CA2 = I2C_High; //Set the CA2 bit address here (Address 100 is reserved for the ATMega IC)
-byte CA1 = 0b01;
-byte CA0 = I2C_High;
+byte CA2 = I2C_Low; //Set the CA2 bit address here (Address 100 is reserved for the ATMega IC)
+byte CA1 = I2C_Low;
+byte CA0 = I2C_Low;
 
 byte I2C_Data = 0; //This is the data packet to send to the I2C slave.
 

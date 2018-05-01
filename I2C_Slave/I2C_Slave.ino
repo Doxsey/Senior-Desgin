@@ -1,9 +1,9 @@
 #include <Wire.h>
 #include <EEPROM.h>
 
-#define CA2_Pin 9
-#define CA1_Pin 8
-#define CA0_Pin 7
+#define CA2_Pin 2
+#define CA1_Pin 1
+#define CA0_Pin 0
 
 byte CA2 = 0;
 byte CA1 = 0;
@@ -12,6 +12,7 @@ byte CA0 = 0;
 void I2C_Action(int);
 
 void setup() {
+  Serial.end();
 	//Serial.begin(9600); //For Debugging
 	Init_EEPROM_Values(); //Read initial values from EEPROM and initialize the address pins
 	Wire.begin(100);	// join i2c bus with address #100
