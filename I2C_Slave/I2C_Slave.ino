@@ -2,8 +2,8 @@
 #include <EEPROM.h>
 
 #define CA2_Pin 2
-#define CA1_Pin 1
-#define CA0_Pin 0
+#define CA1_Pin 3
+#define CA0_Pin 4
 
 byte CA2 = 0;
 byte CA1 = 0;
@@ -12,10 +12,10 @@ byte CA0 = 0;
 void I2C_Action(int);
 
 void setup() {
-  Serial.end();
+  //Serial.end();
 	//Serial.begin(9600); //For Debugging
 	Init_EEPROM_Values(); //Read initial values from EEPROM and initialize the address pins
-	Wire.begin(100);	// join i2c bus with address #100
+	Wire.begin(100);	// join i2c bus with a//ddress #100
 	Wire.onReceive(I2C_Action);	//Setup routine for i2c data receive
 }
 
@@ -24,6 +24,7 @@ void loop() { //Emtpy loop. Will enter I2C_Action when I2C data is received
 }
 
 void I2C_Action(int nBytes){
+	//Serial.println("I2C Action");
 	int eeAddress = 0;
 	byte I2C_Data = Wire.read();
 	CA2 = (I2C_Data & 0b110000) >> 4;
